@@ -1,8 +1,9 @@
 name: Daily
-on:
-  schedule:
-    - cron: "30 6 * * *"
-  workflow_dispatch:
+on: [push, pull_request]
+# on:
+#   schedule:
+#     - cron: "30 6 * * *"
+#   workflow_dispatch:
 
 jobs:
   build:
@@ -43,7 +44,7 @@ jobs:
       - name: Checkout nim-eth
         uses: actions/checkout@v2
         with:
-          ref: master
+          # ref: master
           submodules: true
 
       - name: Derive environment variables
